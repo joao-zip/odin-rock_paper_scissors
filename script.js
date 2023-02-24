@@ -21,24 +21,20 @@ function playRound(player, computer){
 function game(){
     let playerChoice, result,
         playerPoints = 0, computerPoints = 0;
-    for(let i = 0; i < 5; i++){
-        playerChoice = prompt("Your option: ");
-        result = playRound(playerChoice.toLowerCase(),getComputerChoice());
-        switch(result) {
-            case 1:
-                playerPoints++;
-                break;
-            case -1:
-                computerPoints++;
-                break;
-            default:
-                break;
-        }
+
+    while(playerPoints < 5 && computerPoints < 5){
+        playerChoice = prompt("Your option: ", '');
+        result = playRound(playerChoice, getComputerChoice());
+        if(result == 1)
+            playerPoints++;
+        else if(result == -1)
+            computerPoints++;
     }
-    if(playerPoints > computerPoints)
-        console.log("You won the game!");
+
+    if(playerPoints == 5)
+        console.log('You won the game!');
     else
-        console.log("You lose the game!");
+        console.log('You lose the game!');
 }
 
 game();
