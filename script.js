@@ -5,36 +5,50 @@ function getComputerChoice() {
 
 function playRound(player, computer){
     if (player == computer) {
-        console.log('You tied!');
         return 0;
     }else if((player == 'rock' && computer == 'scissors') ||
             (player == 'scissors' && computer == 'paper') ||
             (player == 'paper' && computer == 'rock')) {
-                console.log('You won the round!');
                 return 1;
     }else{
-        console.log('You lose the round!');
         return -1;
     }
 }
 
-function game(){
-    let playerChoice, result,
-        playerPoints = 0, computerPoints = 0;
-
-    while(playerPoints < 5 && computerPoints < 5){
-        playerChoice = prompt("Your option: ", '');
-        result = playRound(playerChoice, getComputerChoice());
-        if(result == 1)
-            playerPoints++;
-        else if(result == -1)
-            computerPoints++;
-    }
-
-    if(playerPoints == 5)
-        console.log('You won the game!');
-    else
-        console.log('You lose the game!');
+function changePlayerScore(score){
+    score++;
+    document.querySelector('.playerScore').innerText = score;
+    return score;
 }
 
-game();
+function changePCScore(score){
+    score++;
+    document.querySelector('.computerScore').innerText = score;
+    return score;
+}
+
+let playerScore = 0, computerScore = 0;
+
+document.querySelector('.rock').addEventListener('click', function(){
+    let result = playRound('rock', getComputerChoice());
+    if(result == 1)
+        playerScore = changePlayerScore(playerScore);
+    else if(result == -1)
+        computerScore = changePCScore(computerScore);
+});
+
+document.querySelector('.paper').addEventListener('click', function(){
+    let result = playRound('paper', getComputerChoice());
+    if(result == 1)
+        playerScore = changePlayerScore(playerScore);
+    else if(result == -1)
+        computerScore = changePCScore(computerScore);
+});
+
+document.querySelector('.scissors').addEventListener('click', function(){
+    let result = playRound('scissors', getComputerChoice());
+    if(result == 1)
+        playerScore = changePlayerScore(playerScore);
+    else if(result == -1)
+        computerScore = changePCScore(computerScore);
+});

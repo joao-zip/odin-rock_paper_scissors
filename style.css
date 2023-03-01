@@ -29,6 +29,7 @@ p {
 
 .button {
     font-size: 4.0em;
+    padding: 6px;
     border-radius: 14px;
     background-color: rgb(104, 137, 166);
     box-shadow: 3px 3px grey;
