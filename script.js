@@ -27,28 +27,74 @@ function changePCScore(score){
     return score;
 }
 
-let playerScore = 0, computerScore = 0;
+function resetPoints() {
+    document.querySelector('.playerScore').innerText = 0;
+    document.querySelector('.computerScore').innerText = 0;
+}
 
-document.querySelector('.rock').addEventListener('click', function(){
-    let result = playRound('rock', getComputerChoice());
-    if(result == 1)
-        playerScore = changePlayerScore(playerScore);
-    else if(result == -1)
-        computerScore = changePCScore(computerScore);
-});
+function game() {
 
-document.querySelector('.paper').addEventListener('click', function(){
-    let result = playRound('paper', getComputerChoice());
-    if(result == 1)
-        playerScore = changePlayerScore(playerScore);
-    else if(result == -1)
-        computerScore = changePCScore(computerScore);
-});
+    let playerScore = 0, computerScore = 0;
+    
+    document.querySelector('.rock').addEventListener('click', function(){
+        let result = playRound('rock', getComputerChoice());
+        if(result == 1)
+            playerScore = changePlayerScore(playerScore);
+        else if(result == -1)
+            computerScore = changePCScore(computerScore);
 
-document.querySelector('.scissors').addEventListener('click', function(){
-    let result = playRound('scissors', getComputerChoice());
-    if(result == 1)
-        playerScore = changePlayerScore(playerScore);
-    else if(result == -1)
-        computerScore = changePCScore(computerScore);
-});
+        if(playerScore == 5){
+            alert('You won!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }else if(computerScore == 5){
+            alert('You lost!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }
+    });
+
+    document.querySelector('.paper').addEventListener('click', function(){
+        let result = playRound('paper', getComputerChoice());
+        if(result == 1)
+            playerScore = changePlayerScore(playerScore);
+        else if(result == -1)
+            computerScore = changePCScore(computerScore);
+        
+        if(playerScore == 5){
+            alert('You won!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }else if(computerScore == 5){
+            alert('You lost!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }
+    });
+
+    document.querySelector('.scissors').addEventListener('click', function(){
+        let result = playRound('scissors', getComputerChoice());
+        if(result == 1)
+            playerScore = changePlayerScore(playerScore);
+        else if(result == -1)
+            computerScore = changePCScore(computerScore);
+        
+        if(playerScore == 5){
+            alert('You won!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }else if(computerScore == 5){
+            alert('You lost!');
+            playerScore = 0;
+            computerScore = 0;
+            resetPoints();
+        }
+    });
+}
+
+game();
