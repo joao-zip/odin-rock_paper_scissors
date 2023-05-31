@@ -6,14 +6,14 @@
 }
 
 body {
-    background-color: rgb(218, 141, 87);
+    background-color: rgb(197, 198, 250);
 }
 
 main {
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    width: 900px;
+    width: 1000px;
     margin: auto;
     text-align: center;
 }
@@ -40,7 +40,8 @@ p {
 }
 
 .end {
-    padding: 5px;
+    font-size: 0.7em;
+    padding: 10px;
 }
 
 .options {
