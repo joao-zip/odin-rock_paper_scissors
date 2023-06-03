@@ -27,6 +27,16 @@ function changePCScore(score){
     return score;
 }
 
+function showWinner(result) {
+    if (result == 1) {
+        document.querySelector('.match-winner').innerText = 'You have won!';
+    } else if(result == -1){
+        document.querySelector('.match-winner').innerText = 'You have lost!';
+    } else {
+        document.querySelector('.match-winner').innerText = 'It\'s a draw!';
+    }
+}
+
 function resetPoints() {
     document.querySelector('.playerScore').innerText = 0;
     document.querySelector('.computerScore').innerText = 0;
@@ -42,6 +52,8 @@ function game() {
             playerScore = changePlayerScore(playerScore);
         else if(result == -1)
             computerScore = changePCScore(computerScore);
+        
+        showWinner(result);
 
         if(playerScore == 5){
             alert('You won!');
@@ -58,10 +70,12 @@ function game() {
 
     document.querySelector('.paper').addEventListener('click', function(){
         let result = playRound('paper', getComputerChoice());
-        if(result == 1)
+        if(result == 1) 
             playerScore = changePlayerScore(playerScore);
         else if(result == -1)
             computerScore = changePCScore(computerScore);
+
+        showWinner(result);
         
         if(playerScore == 5){
             alert('You won!');
@@ -82,6 +96,8 @@ function game() {
             playerScore = changePlayerScore(playerScore);
         else if(result == -1)
             computerScore = changePCScore(computerScore);
+        
+        showWinner(result);
         
         if(playerScore == 5){
             alert('You won!');
